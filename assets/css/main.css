@@ -1061,6 +1061,21 @@ section,
 .why-us .why-us-img img {
   max-height: 70%;
 }
+.why-us .faq-container .faq-item .faq-toggle {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.why-us .faq-container .faq-active .faq-toggle {
+  transform: rotate(90deg); /* Indique l'état ouvert */
+}
+
+.why-us .faq-container .faq-active .faq-content {
+  max-height: 500px; /* Ajuste cette valeur pour permettre l'affichage complet du contenu */
+  opacity: 1;
+  transition: max-height 0.3s ease-in-out;
+}
+
 
 /*--------------------------------------------------------------
 # Skills Section
@@ -1862,69 +1877,6 @@ section,
 .contact .php-email-form button[type=submit]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 25%);
 }
-
-/*--------------------------------------------------------------
-# Portfolio Details Section
---------------------------------------------------------------*/
-.portfolio-details .portfolio-details-slider img {
-  width: 100%;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
-  opacity: 1;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--accent-color);
-}
-
-.portfolio-details .portfolio-info {
-  background-color: var(--surface-color);
-  padding: 30px;
-  box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
-}
-
-.portfolio-details .portfolio-info h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-}
-
-.portfolio-details .portfolio-info ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.portfolio-details .portfolio-info ul li+li {
-  margin-top: 10px;
-}
-
-.portfolio-details .portfolio-description {
-  padding-top: 30px;
-}
-
-.portfolio-details .portfolio-description h2 {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.portfolio-details .portfolio-description p {
-  padding: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-}
-
 /*--------------------------------------------------------------
 # Service Details Section
 --------------------------------------------------------------*/
@@ -1992,21 +1944,21 @@ section,
 }
 .captcha-container {
     display: flex;
-    flex-direction: column; /* Aligne les éléments en colonne */
-    align-items: flex-end; /* Aligne à droite */
+    flex-direction: column; 
+    align-items: flex-end; 
     border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
 }
 
 #captcha-text {
-    margin-bottom: 10px; /* Espace entre le texte et les icônes */
-    font-size: 1.2em; /* Taille du texte */
+    margin-bottom: 10px; 
+    font-size: 1.2em; 
 }
 
 .captcha-options {
     display: flex;
-    justify-content: space-around; /* Répartition des icônes */
+    justify-content: space-around; 
 }
 
 .captcha-options svg {
@@ -2020,7 +1972,7 @@ section,
   position: relative;
   margin-right: 0;
   display: flex;
-  flex-direction: column; /* Utilisez "float: right" pour aligner le captcha à droite */
+  flex-direction: column; 
 }
 
 #captcha-text {
@@ -2049,6 +2001,22 @@ section,
   transition: 0.3s;
   cursor: pointer;
 }
+.ma-section1 form {
+  max-width: 500px; /* Ajuste cette valeur selon la largeur souhaitée */
+  margin: 0 auto; /* Centre le formulaire horizontalement */
+}
+
+.ma-section1 input[type="text"],
+.ma-section1 input[type="email"],
+.ma-section1 textarea,
+.ma-section1 button {
+  width: 100%; 
+  max-width: 100%; /* Empêche les éléments de dépasser la largeur du conteneur */
+  padding: 10px; 
+  margin-bottom: 10px; 
+  box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+}
+
          
           .ma-section {
               background-color: #de7220; 
@@ -2078,7 +2046,7 @@ section,
         margin-left: 10px; 
     }
     .btn-custom {
-      background-color: #ca610c; /* Bleu */
+      background-color: #ca610c; 
       color: white; /* Texte en blanc */
       border: none;
       padding: 10px 20px;
@@ -2089,5 +2057,64 @@ section,
   
   .btn-custom:hover {
       background-color: #ad6830; /* Bleu plus foncé au survol */
+  }
+       
+    .ma-section1 {
+      position: relative; 
+      background: 
+          linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)), 
+          url('cc1.jpg'); /* Image de fond */
+      background-size: cover;
+      background-position: center;
+      color: rgb(255, 255, 255); /* Couleur du texte */
+      padding: 30px 40px; /* Espacement */
+      text-align: center; /* Centrer le texte */
+      width: 100%; 
+      box-sizing: border-box; 
+      margin: 0; 
+  }
+
+  .ma-section1 h1 {
+      font-size: 2.5em;
+      margin: 0;
+      padding: 0;
+      font-weight: bold;
+  }
+
+  .ma-section1 p {
+      font-size: 1.2em;
+      margin: 20px 0 0 0;
+      padding: 0;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espace entre le logo et la section des icônes */
+    padding: 20px; /* Ajuste le padding selon les besoins */
+  }
+  
+  .icon-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .icon-item svg {
+    margin-bottom: 5px; /* Espace entre l'icône et le texte */
+  }
+  
+  .separator {
+    width: 1px; /* Largeur du séparateur */
+    height: 40px; /* Hauteur du séparateur */
+    background-color: #efba98; /* Couleur du séparateur */
+    margin: 0 10px; /* Espace de chaque côté du séparateur */
   }
   

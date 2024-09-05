@@ -240,3 +240,34 @@
         }
     });
 });
+document.querySelectorAll('.faq-item').forEach(item => {
+  const toggle = item.querySelector('.faq-toggle');
+  const content = item.querySelector('.faq-content');
+  const icon = item.querySelector('.faq-icon');
+
+  toggle.addEventListener('click', () => {
+      // Ajoute ou retire la classe 'faq-active' pour ouvrir/fermer l'item
+      item.classList.toggle('faq-active');
+
+      // Animation d'ouverture/fermeture
+      if (item.classList.contains('faq-active')) {
+          content.style.maxHeight = content.scrollHeight + "px"; // Définit la hauteur pour l'animation
+      } else {
+          content.style.maxHeight = null; // Réinitialise la hauteur
+      }
+
+      // Tourne l'icône pour indiquer l'état ouvert/fermé
+      icon.style.transform = item.classList.contains('faq-active') ? 'rotate(180deg)' : 'rotate(0deg)';
+  });
+});
+document.querySelectorAll('.faq-toggle').forEach(toggle => {
+  toggle.addEventListener('click', () => {
+      const faqItem = toggle.closest('.faq-item');
+      faqItem.classList.toggle('faq-active'); // Ajoute ou retire la classe 'faq-active'
+
+      // Animation pour l'icône et le contenu
+      const faqContent = faqItem.querySelector('.faq-content');
+      faqContent.style.maxHeight = faqItem.classList.contains('faq-active') ? faqContent.scrollHeight + 'px' : '0';
+  });
+});
+
