@@ -240,34 +240,38 @@
         }
     });
 });
-document.querySelectorAll('.faq-item').forEach(item => {
-  const toggle = item.querySelector('.faq-toggle');
-  const content = item.querySelector('.faq-content');
-  const icon = item.querySelector('.faq-icon');
-
-  toggle.addEventListener('click', () => {
-      // Ajoute ou retire la classe 'faq-active' pour ouvrir/fermer l'item
-      item.classList.toggle('faq-active');
-
-      // Animation d'ouverture/fermeture
-      if (item.classList.contains('faq-active')) {
-          content.style.maxHeight = content.scrollHeight + "px"; // Définit la hauteur pour l'animation
-      } else {
-          content.style.maxHeight = null; // Réinitialise la hauteur
-      }
-
-      // Tourne l'icône pour indiquer l'état ouvert/fermé
-      icon.style.transform = item.classList.contains('faq-active') ? 'rotate(180deg)' : 'rotate(0deg)';
-  });
+document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionner tous les éléments FAQ
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    // Ajouter un écouteur d'événements à chaque élément
+    faqItems.forEach(item => {
+        const title = item.querySelector('h3');
+        
+        title.addEventListener('click', () => {
+            // Fermer tous les autres éléments
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle l'état actif de l'élément cliqué
+            item.classList.toggle('active');
+        });
+    });
 });
-document.querySelectorAll('.faq-toggle').forEach(toggle => {
-  toggle.addEventListener('click', () => {
-      const faqItem = toggle.closest('.faq-item');
-      faqItem.classList.toggle('faq-active'); // Ajoute ou retire la classe 'faq-active'
 
-      // Animation pour l'icône et le contenu
-      const faqContent = faqItem.querySelector('.faq-content');
-      faqContent.style.maxHeight = faqItem.classList.contains('faq-active') ? faqContent.scrollHeight + 'px' : '0';
-  });
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleIcon = document.querySelector('.toggle-icon');
+    const description = document.querySelector('.section-description');
+    
+    toggleIcon.addEventListener('click', function() {
+        // Toggle la classe pour la rotation de l'icône
+        this.classList.toggle('rotated');
+        
+        // Toggle la classe pour masquer/afficher la description
+        description.classList.toggle('hidden');
+    });
 });
 
